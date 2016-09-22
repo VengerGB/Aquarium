@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{801C3CD0-6C14-4C58-9D6A-4E731DA78FE3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Aqua.Core</RootNamespace>
+    <AssemblyName>Aqua.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\AquaObject.cs" />
+    <Compile Include="Behaviours\FishBehaviour.cs" />
+    <Compile Include="Behaviours\Facing.cs" />
+    <Compile Include="Interfaces\IBehaviour.cs" />
+    <Compile Include="Behaviours\School.cs" />
+    <Compile Include="Base\FishData.cs" />
+    <Compile Include="Graphics\GDI+\UiAquarium.cs" />
+    <Compile Include="Graphics\GDI+\UiFish.cs" />
+    <Compile Include="Graphics\GDI+\UiFood.cs" />
+    <Compile Include="Implementations\Aquarium.cs" />
+    <Compile Include="Implementations\ManualPeerList.cs" />
+    <Compile Include="Interfaces\IManualPeerList.cs" />
+    <Compile Include="Implementations\AquariumProperties.cs" />
+    <Compile Include="Implementations\LocalAquariumStore.cs" />
+    <Compile Include="Utilities\EmbeddedResourceReader.cs" />
+    <Compile Include="FishGenerator.cs" />
+    <Compile Include="Interfaces\IAquarium.cs" />
+    <Compile Include="Interfaces\IAquariumStore.cs" />
+    <Compile Include="Utilities\IEnumerableExtensions.cs" />
+    <Compile Include="Plumbing\Container.cs" />
+    <Compile Include="Interfaces\IPeerData.cs" />
+    <Compile Include="Implementations\LocalPeer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\PointExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aqua.Types\Aqua.Types.csproj">
+      <Project>{bad30f4e-78e2-45fb-89e6-a09c2a933572}</Project>
+      <Name>Aqua.Types</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Names.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\GDI+\Fishes\Fish1.dat" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
